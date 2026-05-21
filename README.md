@@ -22,8 +22,8 @@ MongoDB is **not required** to run the bot. It is only used by the voice time tr
 - `.v top` — all-time leaderboard
 - `.v topweek` — weekly leaderboard  
 - `.v topmonth` — monthly leaderboard
-- `.v stats` — personal voice stats
-- `.v Card` — voice rank card
+
+
 
 Everything else (voice rooms, panel, whitelist, blacklist, managers, tasks, events, music) runs on SQLite and works out of the box with no extra setup.
 
