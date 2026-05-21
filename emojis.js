@@ -1,0 +1,108 @@
+'use strict';
+
+const emojis = {
+  error:   '<a:warn:1491854064299020470>    ',
+  success: '<a:success:1483619816291041430> ',
+
+  lock:        '<:Maskgrouplockblack:1491121052468645902>',
+  unlock:      '<:Maskgroupunlockblack:1491121169825271938>',
+  crown:       '<:MaskgroupcoOwnersblack:1491121025943863408>',
+  limit:       '<:Maskgroupinfinityblack:1491121042159304775>',
+  rename:      '<:Maskgroupnameblack:1491121064166818013>',
+  permitUser:  '<:Maskgrouppermitblack:1491121096227946748>',
+  denyUser:    '<:Maskgrouprejectblack:1491121100871176222>',
+  trash:       '<:Maskgroupclearblack:1491121020227027055>',
+  hide:        '<:Maskgrouphideblack:1491121037247643870>',
+  transfer:    '<:transfer:1491115364535504937>',
+  infinity:    '<:Maskgroupinfinityblack:1491121042159304775>',
+  kick:        '<:Maskgrouprejectblack:1491121100871176222>',
+  info:        '<:infos:1501317404658110616>',
+  status:      '<:status:1501317438946672753>',
+
+  camOn:       '<:camon:1490774283377705094>',
+  camOff:      '<:camoff:1490774333075751016>',
+  sbOn:        '<a:voice:1483668492397052135>',
+  sbOff:       '<a:voice:1483668492397052135>',
+  actOn:       '<a:game:1486811780306178129>',
+  actOff:      '<a:game:1486811780306178129>',
+  activities:  '<a:game:1486811780306178129>',
+
+  tlock:       '<:Maskgrouplockblack:1491121052468645902>',
+  tunlock:     '<:Maskgroupunlockblack:1491121169825271938>',
+
+  rrject:      '<:Maskgrouprejectblack:1491121100871176222>',
+  rpermit:     '<:Maskgrouppermitblack:1491121096227946748>',
+
+  antiAbuse:       '<:Maskgrouplockblack:1491121052468645902>',
+  antiAbuseOff:    '<:Maskgroupunlockblack:1491121169825271938>',
+  antiAbuseStatus: '<:info:1490859301659611177>',
+
+  leaderboard:   '<a:top1:1496946027306024990>',
+  leaderboardNo: '<a:top1:1495430462091431967>',
+
+  rankOne:   '<a:one:1495420667892334614>',
+  rankTwo:   '<a:two:1495420792937123940>',
+  rankThree: '<a:tree:1495421019094122636>',
+  rankFour:  '<a:fore:1495421090908864644>',
+  rankFive:  '<a:five:1495421138636111933>',
+  rankSix:   '<a:sex:1495421218516500560>',
+  rankSeven: '<a:seven:1495421429167034549>',
+  rankEight: '<a:huite:1495421532896366785>',
+  rankNine:  '<a:nine:1495421667265220650>',
+  rankZero:  '<a:zero:1495421286866882820>',
+
+  manAdd:    '<:Maskgroupwhitelistblack:1491203105411305625>',
+  manRemove: '<:Maskgroupblacklistblack:1491121004947308667>',
+  manList:   '<:Maskgroupwhitelistblack:1491203105411305625>',
+  manClear:  '<:Maskgroupwhitelistblack:1491203105411305625>',
+
+  wlAdd:    '<:Maskgroupwhitelistblack:1491203105411305625>',
+  wlRemove: '<:Maskgroupwhitelistblack:1491203105411305625>',
+  wlList:   '<:Maskgroupwhitelistblack:1491203105411305625>',
+
+  blAdd:    '<:Maskgroupblacklistblack:1491121004947308667>',
+  blRemove: '<:Maskgroupblacklistblack:1491121004947308667>',
+  blList:   '<:Maskgroupblacklistblack:1491121004947308667>',
+};
+
+const emojiAssets = [
+  { name: 'warn',                    animated: true,  url: 'https://cdn.discordapp.com/emojis/1491854064299020470.gif' },
+  { name: 'success',                 animated: true,  url: 'https://cdn.discordapp.com/emojis/1483619816291041430.gif' },
+  { name: 'Maskgrouplockblack',      animated: false, url: 'https://cdn.discordapp.com/emojis/1491121052468645902.png' },
+  { name: 'Maskgroupunlockblack',    animated: false, url: 'https://cdn.discordapp.com/emojis/1491121169825271938.png' },
+  { name: 'MaskgroupcoOwnersblack',  animated: false, url: 'https://cdn.discordapp.com/emojis/1491121025943863408.png' },
+  { name: 'Maskgroupinfinityblack',  animated: false, url: 'https://cdn.discordapp.com/emojis/1491121042159304775.png' },
+  { name: 'Maskgroupnameblack',      animated: false, url: 'https://cdn.discordapp.com/emojis/1491121064166818013.png' },
+  { name: 'Maskgrouppermitblack',    animated: false, url: 'https://cdn.discordapp.com/emojis/1491121096227946748.png' },
+  { name: 'Maskgrouprejectblack',    animated: false, url: 'https://cdn.discordapp.com/emojis/1491121100871176222.png' },
+  { name: 'Maskgroupclearblack',     animated: false, url: 'https://cdn.discordapp.com/emojis/1491121020227027055.png' },
+  { name: 'Maskgrouphideblack',      animated: false, url: 'https://cdn.discordapp.com/emojis/1491121037247643870.png' },
+  { name: 'transfer',                animated: false, url: 'https://cdn.discordapp.com/emojis/1491115364535504937.png' },
+  { name: 'infos',                   animated: false, url: 'https://cdn.discordapp.com/emojis/1501317404658110616.png' },
+  { name: 'status',                  animated: false, url: 'https://cdn.discordapp.com/emojis/1501317438946672753.png' },
+  { name: 'camon',                   animated: false, url: 'https://cdn.discordapp.com/emojis/1490774283377705094.png' },
+  { name: 'camoff',                  animated: false, url: 'https://cdn.discordapp.com/emojis/1490774333075751016.png' },
+  { name: 'voice',                   animated: true,  url: 'https://cdn.discordapp.com/emojis/1483668492397052135.gif' },
+  { name: 'game',                    animated: true,  url: 'https://cdn.discordapp.com/emojis/1486811780306178129.gif' },
+  { name: 'info',                    animated: false, url: 'https://cdn.discordapp.com/emojis/1490859301659611177.png' },
+  { name: 'top1',                    animated: true,  url: 'https://cdn.discordapp.com/emojis/1496946027306024990.gif' },
+  { name: 'one',                     animated: true,  url: 'https://cdn.discordapp.com/emojis/1495420667892334614.gif' },
+  { name: 'two',                     animated: true,  url: 'https://cdn.discordapp.com/emojis/1495420792937123940.gif' },
+  { name: 'tree',                    animated: true,  url: 'https://cdn.discordapp.com/emojis/1495421019094122636.gif' },
+  { name: 'fore',                    animated: true,  url: 'https://cdn.discordapp.com/emojis/1495421090908864644.gif' },
+  { name: 'five',                    animated: true,  url: 'https://cdn.discordapp.com/emojis/1495421138636111933.gif' },
+  { name: 'sex',                     animated: true,  url: 'https://cdn.discordapp.com/emojis/1495421218516500560.gif' },
+  { name: 'seven',                   animated: true,  url: 'https://cdn.discordapp.com/emojis/1495421429167034549.gif' },
+  { name: 'huite',                   animated: true,  url: 'https://cdn.discordapp.com/emojis/1495421532896366785.gif' },
+  { name: 'nine',                    animated: true,  url: 'https://cdn.discordapp.com/emojis/1495421667265220650.gif' },
+  { name: 'zero',                    animated: true,  url: 'https://cdn.discordapp.com/emojis/1495421286866882820.gif' },
+  { name: 'Maskgroupwhitelistblack', animated: false, url: 'https://cdn.discordapp.com/emojis/1491203105411305625.png' },
+  { name: 'Maskgroupblacklistblack', animated: false, url: 'https://cdn.discordapp.com/emojis/1491121004947308667.png' },
+  { name: 'enjoy',                   animated: true,  url: 'https://cdn.discordapp.com/emojis/1491053471682527392.gif' },
+  { name: 'point',                   animated: false, url: 'https://cdn.discordapp.com/emojis/1484325853625057400.png' },
+  { name: 'nextpre',                 animated: true,  url: 'https://cdn.discordapp.com/emojis/1492125222260965528.gif' },
+  { name: 'home',                    animated: false, url: 'https://cdn.discordapp.com/emojis/1491836672428609798.png' },
+];
+
+module.exports = emojis;
+module.exports.emojiAssets = emojiAssets;
